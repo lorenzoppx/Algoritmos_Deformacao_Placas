@@ -1,6 +1,26 @@
 """
-Algoritmo deformação de placas
-Modified: 25/07/2022
+Algoritmo deformação de placas Finite Difference Method com Five-stencil
+-> Five Stencil size
+    -----------
+    |    1    |
+    | 1 -4  1 |
+    |    1    |
+    -----------
+-> Borda com isolante térmico, ou seja, derivada nula. 
+-> Stencil adaptado nas bordas, '*1*': Ghost point.
+        *1*     
+    -----------
+    | 1 -5  1 |   ... (and others)
+    |    1    |
+    -----------     
+
+         *1*     
+        --------
+    *1* |-6  1 |  ... (and others)
+        | 1    |
+        --------
+
+Modified: 27/07/2022
 By: @lorenzoppx
 """
 
@@ -33,17 +53,12 @@ Matrix_ones[:,-1]=10
 # Temperatura fixa de cima
 Matrix_ones[:,0]=10
 
-#Stencil size (estrela)
-"""
-        1
-     1 -4  1
-        1
-"""
+
        
 
 # Create points inside each unit vecto
-Nx=100
-Ny=100
+Nx=50
+Ny=50
 x = np.linspace(1,6,Nx+1)
 y = np.linspace(1,6,Ny+1)
 
