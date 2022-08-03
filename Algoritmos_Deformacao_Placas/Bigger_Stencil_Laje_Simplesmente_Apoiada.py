@@ -57,15 +57,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Initial conditions
-width= 6
-lenght = 6
+width= 2
+lenght = 2
 number_of_points= width*lenght
 
 # Create points inside each unit vecto
-Nx=30
-Ny=30
-x = np.linspace(1,2,Nx+1)
-y = np.linspace(1,2,Ny+1)
+Nx=100
+Ny=100
+x = np.linspace(1,width,Nx+1)
+y = np.linspace(1,lenght,Ny+1)
 
 # Create meshgrid with the points
 X,Y = np.meshgrid(x,y)
@@ -97,7 +97,7 @@ for i in range(2,shape[0]+2):
         T[i,j-2]=1
         T[i+2,j]=1
         T[i-2,j]=1
-        """
+        
         for ix in range(0,2):
             for jx in range(2,shape[1]+2):
                 if(T[ix,jx]==1 and ix==0):
@@ -125,7 +125,7 @@ for i in range(2,shape[0]+2):
                     T[ix,jx-2]=T[ix,jx-2]-T[ix,jx]
                 if(T[ix,jx]==1 and jx==shape[1]+3):
                     T[ix,jx-2]=T[ix,jx-2]-T[ix,jx]
-        """
+        
         T = np.delete(T,[0,1,-2,-1],0)
         T = np.delete(T,[0,1,-2,-1],1)
         T = np.reshape(T,(1,number_of_points))
@@ -138,9 +138,10 @@ for i in range(2,shape[0]+2):
 print(np.shape(M))
 
 b = np.zeros(shape[0]*shape[1]) #RHS
-b[0:Nx+1] = -100
+b[:] = -0.00001
+#b[Nx+46:Nx+51] = 100
 shape_b = np.shape(b)
-b[-Nx-1:shape_b[0]] = 100
+b[-Nx-1:shape_b[0]] = 0
 
 tic=time.time()
 temp=scipy.linalg.solve(np.asarray(M),b)
@@ -152,8 +153,8 @@ shape = np.shape(X)
 T = np.zeros((shape[0]+2, shape[1]+2))
 temp = np.reshape(temp,(Ny+1,Nx+1))
 T[1:shape[0]+1,1:shape[1]+1] = temp
-T[0,:] = -100
-T[-1,:] = 100
+T[0,:] = 0
+T[-1,:] = 0
 T[:,0] = 0
 T[:,-1] = 0
 
@@ -165,8 +166,8 @@ df = pd.DataFrame(temp)
 filepath = 'my_excel_file_b.xlsx'
 df.to_excel(filepath, index=False)
 """
-x = np.linspace(1,2,Nx+3)
-y = np.linspace(1,2,Ny+3)
+x = np.linspace(1,width,Nx+3)
+y = np.linspace(1,lenght,Ny+3)
 
 # Create meshgrid with the points
 X,Y = np.meshgrid(x,y)
@@ -175,10 +176,10 @@ X,Y = np.meshgrid(x,y)
 fig = plt.figure()
 ax = plt.axes(projection='3d')
 temp = np.reshape(temp,(shape[0],shape[1]))
-ax.contour3D(X, Y, T, 500, cmap='jet')
+ax.contour3D(X, Y, T, 1000, cmap='jet')
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
-ax.set_zlabel('Temperature');
+ax.set_zlabel('Deformacao');
 plt.show()
 
 # Create 2d print

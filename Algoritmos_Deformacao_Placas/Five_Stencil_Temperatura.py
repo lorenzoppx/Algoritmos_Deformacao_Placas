@@ -35,15 +35,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Initial conditions
-width= 6
-lenght = 6
+width = 2
+lenght = 2
 number_of_points= width*lenght
 
 # Create points inside each unit vecto
 Nx=30
 Ny=30
-x = np.linspace(1,2,Nx+1)
-y = np.linspace(1,2,Ny+1)
+# (start;stop;number_of_points)
+x = np.linspace(1,width,Nx+1)
+y = np.linspace(1,lenght,Ny+1)
+print(x)
+print("--------")
 
 # Create meshgrid with the points
 X,Y = np.meshgrid(x,y)
@@ -55,6 +58,10 @@ T = np.zeros_like(X)
 shape = np.shape(X)
 number_of_points = shape[0]*shape[1] 
 print(shape)
+print("---------------------")
+print(X)
+print("---------------------")
+print("\n")
 
 # Lado esquerdo e cima
 T[0,0]=-4

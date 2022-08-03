@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>681d9842-37df-494e-954a-37ddab977eeb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Bigger_Stencil.py</StartupFile>
+    <StartupFile>Bigger_Stencil_Laje_Engastada.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,11 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Five_Stencil.py" />
-    <Compile Include="Bigger_Stencil.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="module2.py">
+    <Compile Include="Bigger_Stencil_Laje_Engastada.py" />
+    <Compile Include="Five_Stencil_Temperatura.py" />
+    <Compile Include="Bigger_Stencil_Laje_Simplesmente_Apoiada.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
