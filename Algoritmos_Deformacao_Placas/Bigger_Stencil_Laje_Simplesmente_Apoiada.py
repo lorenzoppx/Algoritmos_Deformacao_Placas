@@ -13,7 +13,7 @@ Algoritmo deformação de placas Finite Difference Method com Five-stencil
             *1*     
     ------------------
     |    2  -8  2    |
-    | 1 -8  19 -8  1 | ...(and others)
+    | 1 -8  20 -8  1 | ...(and others)
     |    2  -8  2    |
     |        1       |
     ------------------
