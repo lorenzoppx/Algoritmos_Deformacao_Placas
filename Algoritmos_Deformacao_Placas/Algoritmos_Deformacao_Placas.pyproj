@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>681d9842-37df-494e-954a-37ddab977eeb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Bigger_Stencil_Laje_Engastada.py</StartupFile>
+    <StartupFile>Bigger_Stencil_Laje_Simplesmente_Apoiada.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

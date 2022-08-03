@@ -13,7 +13,7 @@ Algoritmo deformação de placas Finite Difference Method com Five-stencil
             *1*     
     ------------------
     |    2  -8  2    |
-    | 1 -8  21 -8  1 | ...(and others)
+    | 1 -8  20 -8  1 | ...(and others)
     |    2  -8  2    |
     |        1       |
     ------------------
@@ -98,28 +98,28 @@ for i in range(2,shape[0]+2):
         T[i+2,j]=1
         T[i-2,j]=1
         
-        for ix in range(0,2):
+        for ix in range(0,1):
             for jx in range(2,shape[1]+2):
                 if(T[ix,jx]==1 and ix==0):
                     T[ix+2,j]=T[ix+2,jx]+T[ix,jx]
                 if(T[ix,jx]==1 and ix==1):
                     T[ix+2,jx]=T[ix+2,jx]+T[ix,jx]
         
-        for jx in range(0,2):
+        for jx in range(0,1):
             for ix in range(2,shape[0]+2):
                 if(T[ix,jx]==1 and jx==0):
                     T[ix,jx+2]=T[ix,jx+2]+T[ix,jx]
                 if(T[ix,jx]==1 and jx==1):
                     T[ix,jx+2]=T[ix,jx+2]+T[ix,jx]
         
-        for ix in range(shape[0]+2,shape[0]+4):
+        for ix in range(shape[0]+3,shape[0]+4):
             for jx in range(2,shape[1]+2):
                 if(T[ix,jx]==1 and ix==shape[0]+2):
                     T[ix-2,jx]=T[ix-2,jx]+T[ix,jx]
                 if(T[ix,jx]==1 and ix==shape[0]+3):
                     T[ix-2,jx]=T[ix-2,jx]+T[ix,jx]
 
-        for jx in range(shape[1]+2,shape[1]+4):
+        for jx in range(shape[1]+3,shape[1]+4):
             for ix in range(2,shape[0]+2):
                 if(T[ix,jx]==1 and jx==shape[1]+2):
                     T[ix,jx-2]=T[ix,jx-2]+T[ix,jx]
@@ -141,7 +141,6 @@ b = np.zeros(shape[0]*shape[1]) #RHS
 b[:] = -0.00001
 #b[Nx+46:Nx+51] = 100
 shape_b = np.shape(b)
-b[-Nx-1:shape_b[0]] = 0
 
 tic=time.time()
 temp=scipy.linalg.solve(np.asarray(M),b)
