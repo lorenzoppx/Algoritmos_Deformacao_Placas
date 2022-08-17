@@ -102,27 +102,35 @@ for i in range(2,shape[0]+2):
             for jx in range(2,shape[1]+2):
                 if(T[ix,jx]==1 and ix==0):
                     T[ix+2,j]=T[ix+2,jx]-T[ix,jx]
+                """
                 if(T[ix,jx]==1 and ix==1):
                     T[ix+2,jx]=T[ix+2,jx]-T[ix,jx]
+                """
         
         for jx in range(0,1):
             for ix in range(2,shape[0]+2):
                 if(T[ix,jx]==1 and jx==0):
                     T[ix,jx+2]=T[ix,jx+2]-T[ix,jx]
+                """
                 if(T[ix,jx]==1 and jx==1):
                     T[ix,jx+2]=T[ix,jx+2]-T[ix,jx]
+                """
         
         for ix in range(shape[0]+3,shape[0]+4):
             for jx in range(2,shape[1]+2):
+                """
                 if(T[ix,jx]==1 and ix==shape[0]+2):
                     T[ix-2,jx]=T[ix-2,jx]-T[ix,jx]
+                """
                 if(T[ix,jx]==1 and ix==shape[0]+3):
                     T[ix-2,jx]=T[ix-2,jx]-T[ix,jx]
 
         for jx in range(shape[1]+3,shape[1]+4):
             for ix in range(2,shape[0]+2):
+                """
                 if(T[ix,jx]==1 and jx==shape[1]+2):
                     T[ix,jx-2]=T[ix,jx-2]-T[ix,jx]
+                """
                 if(T[ix,jx]==1 and jx==shape[1]+3):
                     T[ix,jx-2]=T[ix,jx-2]-T[ix,jx]
         
@@ -138,7 +146,7 @@ for i in range(2,shape[0]+2):
 print(np.shape(M))
 
 b = np.zeros(shape[0]*shape[1]) #RHS
-b[:] = -0.00001
+b[:] = -1
 #b[Nx+46:Nx+51] = 100
 shape_b = np.shape(b)
 
@@ -160,11 +168,12 @@ T[:,-1] = 0
 """
 ## OUTPUT EXCEL
 ## convert your array into a dataframe
-df = pd.DataFrame(temp)
+df = pd.DataFrame(M)
 ## save to xlsx file
-filepath = 'my_excel_file_b.xlsx'
+filepath = 'my_apoiada.xlsx'
 df.to_excel(filepath, index=False)
 """
+
 x = np.linspace(1,width,Nx+3)
 y = np.linspace(1,lenght,Ny+3)
 
