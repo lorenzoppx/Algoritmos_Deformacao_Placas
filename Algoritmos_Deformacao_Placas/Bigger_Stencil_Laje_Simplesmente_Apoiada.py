@@ -57,11 +57,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Initial conditions
-width= 2
-lenght = 2
+width= 12
+lenght = 8
 number_of_points= width*lenght
 
 # Create points inside each unit vecto
+"""
+# Standard
+Nx=11
+Ny=7
+"""
+# More precision
 Nx=50
 Ny=50
 x = np.linspace(1,width,Nx+1)
@@ -171,6 +177,13 @@ T[:,-1] = 0
 df = pd.DataFrame(M)
 ## save to xlsx file
 filepath = 'my_apoiada.xlsx'
+df.to_excel(filepath, index=False)
+
+## OUTPUT EXCEL
+## convert your array into a dataframe
+df = pd.DataFrame(temp)
+## save to xlsx file
+filepath = 'my_apoiada_b.xlsx'
 df.to_excel(filepath, index=False)
 """
 

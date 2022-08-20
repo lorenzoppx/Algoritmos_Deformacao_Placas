@@ -57,11 +57,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Initial conditions
-width= 2
-lenght = 2
-number_of_points= width*lenght
+width= 12
+lenght = 8
 
 # Create points inside each unit vecto
+"""
+# Standard
+Nx=11
+Ny=7
+"""
+# More precision
 Nx=50
 Ny=50
 x = np.linspace(1,width,Nx+1)
