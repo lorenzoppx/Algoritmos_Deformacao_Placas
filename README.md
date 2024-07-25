@@ -1,4 +1,4 @@
-> Para mais detalhes acesse o PDF abaixo: <br>
+> Para mais detalhes acesse: <br>
 [PDF](https://github.com/lorenzoppx/Algoritmos_Deformacao_Placas/blob/master/Apresentacao_Deformacao_de_Placas.pdf)
 <br>
 Partindo de um conhecimento prévio inicial, é conhecida a equação diferencial de quarta ordem que relaciona a deformação sofrida pela placa w, a carga a qual a placa é submetida P e a rigidez da placa D. <br>
