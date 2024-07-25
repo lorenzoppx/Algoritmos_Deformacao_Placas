@@ -1,1 +1,1 @@
-https://docs.google.com/viewer?url=$https://github.com/lorenzoppx/Algoritmos_Deformacao_Placas/blob/master/Apresentacao_Deformacao_de_Placas.pdf}
+<embed src="https://github.com/lorenzoppx/Algoritmos_Deformacao_Placas/blob/master/Apresentacao_Deformacao_de_Placas.pdf" type="application/pdf" />
